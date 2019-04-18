@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static '/css/tongyong.css' %}">
 </head>
 <body>
-    <h2>问题：{{poll.issue}}</h2>
-    <ul>
-        {% for ch in poll.chiocelist_set.all %}
-            <li>{{ch.options}}-票数-{{ch.number}}</li>
-        {% empty %}
-            <h4>没有选项</h4>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'polls:list' %}">返回列表</a>
+    <div>
+        <h2>问题：{{poll.issue}}</h2>
+        <ul>
+            {% for ch in poll.chiocelist_set.all %}
+                <li>{{ch.options}}-票数-{{ch.number}}</li>
+            {% empty %}
+                <h4>没有选项</h4>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'polls:list' %}">返回列表</a>
+    </div>
 </body>
 </html>

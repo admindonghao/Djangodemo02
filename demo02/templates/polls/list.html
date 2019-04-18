@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>列表页</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static '/css/tongyong.css' %}">
 </head>
 <body>
-    <h1>问题列表</h1>
-    <ul>
-        {% for poll in polls %}
-            <li><a href="{% url 'polls:detail' poll.id %}">{{poll.issue}}</a></li>
-        {% empty %}
-            <h4>还没有问题</h4>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'polls:index' %}">返回首页</a>
+    <div>
+        <h1>问题列表</h1>
+        <ul>
+            {% for poll in polls %}
+                <li><a href="{% url 'polls:detail' poll.id %}">{{poll.issue}}</a></li>
+            {% empty %}
+                <h4>还没有问题</h4>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'polls:index' %}">返回首页</a>
+    </div>
 </body>
 </html>

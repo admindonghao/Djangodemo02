@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static '/css/tongyong.css' %}">
 </head>
 <body>
-    <h1>首页</h1>
-    <h2>欢迎来到此投票系统，请为你心中选项投上一票</h2>
-    <a href="{% url 'polls:list' %}">进入问题列表</a>
+    <div>
+        <h1>首页</h1>
+        <h2>欢迎来到此投票系统，请为你心中选项投上一票</h2>
+        <a href="{% url 'polls:list' %}">进入问题列表</a>
+    </div>
 </body>
 </html>
