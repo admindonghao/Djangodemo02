@@ -16,3 +16,15 @@ def list(request):
 def detail(request, id):
     poll = IssueList.objects.get(pk=id)
     return render(request, 'polls/detail.html', {'poll':poll})
+
+
+def details(request, id):
+    poll = IssueList.objects.get(pk=id)
+    po = request.POST['poll']
+    # print(po)
+    cho = ChioceList.objects.get(pk=po)
+    # print(cho)
+    cho.number += 1
+    cho.save()
+    return render(request, 'polls/details.html', {'poll':poll})
+    # return HttpResponse('h1')
