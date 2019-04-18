@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题详情与选项</title>
+</head>
+<body>
+    <h2>问题：{{poll.issue}}</h2>
+    <ul>
+        <form action="/polls/details/{{poll.id}}/" method="post">
+            {% for ch in poll.chiocelist_set.all %}
+                <li><input type="radio" name="poll" value="{{ch.id}}">{{ch.options}}</li>
+            {% empty %}
+                <h4>没有选项</h4>
+            {% endfor %}
+            <input type="submit" value="确定">
+        </form>
+    </ul>
+    <a href="{% url 'polls:list' %}">返回列表</a>
+</body>
+</html>
